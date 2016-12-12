@@ -20,7 +20,7 @@ Under [MIT License](LICENSE.md)
 ### menu
 文档目录
 
-## 404.md
+## book/404.md
 自定义404页
 
 # 关于路由
