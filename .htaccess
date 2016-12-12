@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+	#开启重定向
+	RewriteEngine On
+	#全部重定向到route
+	RewriteRule ^(?!public/|book/|favicon.ico).*$ index.php
+</IfModule>
+
+<Files "*.md">
+	Require all denied
+</Files>
