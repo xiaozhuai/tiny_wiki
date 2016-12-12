@@ -2,6 +2,7 @@
 
 tiny wiki是一个极致轻巧的文档中心，使用markdown书写文档，部署简单，可在apache+php或nginx+php环境下轻松建立在线文档。
 
+Under [MIT License](LICENSE.md)
 
 # 作者
 + xiaozhuai [xiaozhuai7@gmail.com](xiaozhuai7@gmail.com)
