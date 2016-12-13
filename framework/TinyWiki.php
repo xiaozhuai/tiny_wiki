@@ -46,8 +46,11 @@ class TinyWiki
             "url"   => @$tmp[0],
             "query" => @$tmp[1]
         );
-        if ($uri["url"] != "/") {                           //cause all request should be redirect to /
-            header("location: /?" . $uri["query"]);
+        if(substr($uri["url"], -1)=="/"){
+            $uri["url"] = substr($uri["url"], 0, -1);               //remove / if end with /
+        }
+        if ($uri["url"] != $this->configs["site_root"]) {                           //cause all request should be redirect to /
+            header("location: ".$this->configs["site_root"]."?" . $uri["query"]);
             exit;
         }
     }
