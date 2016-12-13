@@ -37,10 +37,6 @@ Under [MIT License](LICENSE.md)
 ## book_root
 配置书籍根目录，只能是相对于项目目录的相对路径，以/开头
 
-## force_redirect
-强制重定向会将所有的非静态资源的访问重定向到index.php，开启重定向需要配置 `force_redirect` 为 `true` ，并且重命名项目目录下的__htaccess为.htaccess。
-如果服务端不是apache环境，则可根据服务器自行配置重定向规则
-
 ## site_root
 站点目录，相对于站点根目录的路径，例如项目放在 `/var/www/wiki` 下，则配置此项为 `/wiki`，
 若在 `/var/www` 下，则为默认值 `/`

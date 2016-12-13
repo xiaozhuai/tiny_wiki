@@ -40,21 +40,6 @@ class TinyWiki
         //var_dump($this->configs);
     }
 
-    private function forceRedirect(){
-        $tmp = explode("?", $_SERVER["REQUEST_URI"], 2);    //parse uri to url(not include domain) and query args
-        $uri = array(
-            "url"   => @$tmp[0],
-            "query" => @$tmp[1]
-        );
-        if(substr($uri["url"], -1)=="/"){
-            $uri["url"] = substr($uri["url"], 0, -1);               //remove / if end with /
-        }
-        if ($uri["url"] != $this->configs["site_root"]) {                           //cause all request should be redirect to /
-            header("location: ".$this->configs["site_root"]."?" . $uri["query"]);
-            exit;
-        }
-    }
-
     private function parseMarkdownFile($file){
         return $this->parseMarkdownText(file_get_contents($file));
     }
@@ -129,9 +114,6 @@ class TinyWiki
     public function go()
     {
         session_start();
-        if($this->configs["force_redirect"]){
-            $this->forceRedirect();
-        }
         $this->book = json_decode(file_get_contents($this->book_root . "/book.json"), true);     //load book defined in config
         $this->switchMode();
     }
