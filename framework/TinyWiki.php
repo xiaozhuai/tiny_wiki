@@ -85,11 +85,24 @@ class TinyWiki
             }
         }
         if ($mdFile == null) {                                                                //if the book donnot provide a 404.md
-            $mdHtml = $this->parseMarkdownText("# 404\n404 Not Found");                       //then use the default 404 content
+            $mdContent = "# 404\n404 Not Found";                       //then use the default 404 content
         } else {
-            $mdHtml = $this->parseMarkdownFile($mdFile);
+            $mdContent = file_get_contents($mdFile);
         }
-        echo $mdHtml;                                                                         //reply
+        $type = "html";
+        if(isset($_GET["type"])){
+            $type = $_GET["type"];
+        }
+        switch ($type){
+            case "markdown":
+                echo $mdContent;
+                break;
+            case "html":
+            default:
+                $mdHtml = $this->parseMarkdownText($mdContent);
+                echo $mdHtml;
+                break;
+        }
     }
 
     private function layout(){
