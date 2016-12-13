@@ -37,10 +37,15 @@ Under the [MIT License](LICENSE.md)
 设置自定义404页
 
 ## 关于路由
+
 例如 /xxx, 会依次匹配下面的规则, 直到命中
+
 1. xxx.md
+
 2. xxx/index.md
+
 3. 404.md
+
 4. 默认404内容, 内容为:
 ```
 # 404
@@ -54,3 +59,10 @@ Under the [MIT License](LICENSE.md)
 + SiddonTang [siddontang@gmail.com](siddontang@gmail.com)
 
 感谢！
+
+# 最后
+找一个美工小伙伴，由于本人前端能力有限，求小伙伴加入。
+
+此项目纯属个人闲暇时间的作品，目标是极简，灵活，高度可配置。
+
+求情怀美工加入, QQ: 798047000

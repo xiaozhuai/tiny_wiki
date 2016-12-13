@@ -37,10 +37,15 @@ Default config file locate in `framework/config.default.json` , if you want to c
 Set a custom 404 page
 
 ## About Route
-for example /xxx
+
+for example /xxx, it will match these case until matched
+
 1. xxx.md
+
 2. xxx/index.md
+
 3. 404.md
+
 4. default 404 content, the content is:
 ```
 # 404
