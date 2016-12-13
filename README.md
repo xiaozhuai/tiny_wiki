@@ -34,15 +34,20 @@ Under the [MIT License](LICENSE.md)
 # 全局设定
 默认的全局设定位 `framework/config.default.json` ，如果需要修改配置，请在项目目录下建立 `config.custom.json` 文件，所有的默认配置都可以被覆盖。
 
-## book_root
+* book_root
 配置书籍根目录，只能是相对于项目目录的相对路径，以/开头
 
-## site_root
+* site_root
 站点目录，相对于站点根目录的路径，例如项目放在 `/var/www/wiki` 下，则配置此项为 `/wiki`，
 若在 `/var/www` 下，则为默认值 `/`
 
-## theme
+* theme
 设置主题，每个主题都是 `theme` 下的一个文件夹。每个主题目录下必须包含 `view/layout.php` 和 `view/login.php` 模板文件。
+
+* render_side
+设置渲染端，默认值 `server`
+    1. server 服务端渲染，书籍目录和篇章内容会在服务端渲染成html
+    2. client 浏览器(客户端渲染)，书籍目录会以json形式传到浏览器，由浏览器生成html，书籍篇章内容会以markdown形式传到浏览器，浏览器解析markdown生成html
 
 # 示例文档
 项目中示例(leetcode-solution)文档来自github，原作者：
