@@ -48,9 +48,8 @@ function getTypeByRenderSize($side){
         case "server":
             return "html";
         case "client":
-            return "markdown";
         default:
-            return "";
+            return "markdown";
     }
 }
 ?>
@@ -78,7 +77,7 @@ function getTypeByRenderSize($side){
         <div class="jquery-accordion-menu-header" id="form"></div>
         <ul id="book-menu-list">
             <?php
-                if($CONFIG["render_side"]=="server"){
+                if(getTypeByRenderSize($CONFIG["render_side"])=="html"){
                     renderMenu($MENU);
                 }
             ?>
@@ -90,11 +89,10 @@ function getTypeByRenderSize($side){
 
 
 <?php
-if($CONFIG["render_side"]=="client"){
+if(getTypeByRenderSize($CONFIG["render_side"])=="markdown"){
 ?>
 <script src="<?php echo $CONFIG["site_root"]; ?>public/js/markdown-to-html.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-    console.log("render client");
     var menu = <?php echo json_encode($MENU); ?>;
     function renderSubMenu(submenu, deep) {
         var menuHtml = "";
@@ -151,10 +149,10 @@ if($CONFIG["render_side"]=="client"){
     function genHtml(text, callback) {
         switch (type){
             case "html":
-            default:
                 callback(text);
                 break;
             case "markdown":
+            default:
                 markdownToHtml(text, function(html) {
                     callback(html);
                 });

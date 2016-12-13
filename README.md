@@ -45,7 +45,7 @@ Under the [MIT License](LICENSE.md)
 设置主题，每个主题都是 `theme` 下的一个文件夹。每个主题目录下必须包含 `view/layout.php` 和 `view/login.php` 模板文件。
 
 * render_side
-设置渲染端，默认值 `server`
+设置渲染端，默认值 `client`
     1. server 服务端渲染，书籍目录和篇章内容会在服务端渲染成html
     2. client 浏览器(客户端渲染)，书籍目录会以json形式传到浏览器，由浏览器生成html，书籍篇章内容会以markdown形式传到浏览器，浏览器解析markdown生成html
 

@@ -95,10 +95,10 @@ class TinyWiki
         }
         switch ($type){
             case "markdown":
+            default:
                 echo $mdContent;
                 break;
             case "html":
-            default:
                 $mdHtml = $this->parseMarkdownText($mdContent);
                 echo $mdHtml;
                 break;
