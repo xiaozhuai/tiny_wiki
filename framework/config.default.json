@@ -1,0 +1,6 @@
+{
+    "book_root": "/sample_book",
+    "force_redirect": false,
+    "site_root": "/",
+    "theme": "default"
+}
