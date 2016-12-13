@@ -44,7 +44,7 @@ class TinyWiki
         $tmp = explode("?", $_SERVER["REQUEST_URI"], 2);    //parse uri to url(not include domain) and query args
         $uri = array(
             "url"   => @$tmp[0],
-            "query" => @tmp[1]
+            "query" => @$tmp[1]
         );
         if ($uri["url"] != "/") {                           //cause all request should be redirect to /
             header("location: /?" . $uri["query"]);
