@@ -138,6 +138,10 @@ if(getTypeByRenderSize($CONFIG["render_side"])=="markdown"){
 
     $(function () {
         $("#book-menu-list").html(renderMenu());
+        if(menuSelected!=null){
+            $("#book-menu-list li").removeClass("active");
+            $("#book-menu-list a[href='#"+menuSelected+"']").parent().addClass("active");
+        }
     });
 </script>
 <?php
@@ -145,6 +149,7 @@ if(getTypeByRenderSize($CONFIG["render_side"])=="markdown"){
 ?>
 
 <script type="text/javascript">
+    var menuSelected = null;
     var type = "<?php echo getTypeByRenderSize($CONFIG["render_side"]); ?>";
     function genHtml(text, callback) {
         switch (type){
@@ -162,8 +167,9 @@ if(getTypeByRenderSize($CONFIG["render_side"])=="markdown"){
     var jsroute = route.route([
         J.stream(route.queryStringG,J.ctx("query"),route.nextp)
         ,J.stream(route.startP("/"),function(path) {
-            $("#book-menu-list li.active").removeClass("active");
-            $("a[href='#"+path+"']").parent().addClass("active");
+            menuSelected = "path";
+            $("#book-menu-list li").removeClass("active");
+            $("#book-menu-list a[href='#"+path+"']").parent().addClass("active");
             $(".content-side").html("<style type='text/css'>@-webkit-keyframes uil-default-anim { 0% { opacity: 1} 100% {opacity: 0} }@keyframes uil-default-anim { 0% { opacity: 1} 100% {opacity: 0} }.uil-default-css > div:nth-of-type(1){-webkit-animation: uil-default-anim 1s linear infinite;animation: uil-default-anim 1s linear infinite;-webkit-animation-delay: -0.5s;animation-delay: -0.5s;}.uil-default-css { position: relative;background:none;width:200px;height:200px;margin-left: calc( 50% - 100px );}.uil-default-css > div:nth-of-type(2){-webkit-animation: uil-default-anim 1s linear infinite;animation: uil-default-anim 1s linear infinite;-webkit-animation-delay: -0.375s;animation-delay: -0.375s;}.uil-default-css { position: relative;background:none;width:200px;height:200px;}.uil-default-css > div:nth-of-type(3){-webkit-animation: uil-default-anim 1s linear infinite;animation: uil-default-anim 1s linear infinite;-webkit-animation-delay: -0.25s;animation-delay: -0.25s;}.uil-default-css { position: relative;background:none;width:200px;height:200px;}.uil-default-css > div:nth-of-type(4){-webkit-animation: uil-default-anim 1s linear infinite;animation: uil-default-anim 1s linear infinite;-webkit-animation-delay: -0.125s;animation-delay: -0.125s;}.uil-default-css { position: relative;background:none;width:200px;height:200px;}.uil-default-css > div:nth-of-type(5){-webkit-animation: uil-default-anim 1s linear infinite;animation: uil-default-anim 1s linear infinite;-webkit-animation-delay: 0s;animation-delay: 0s;}.uil-default-css { position: relative;background:none;width:200px;height:200px;}.uil-default-css > div:nth-of-type(6){-webkit-animation: uil-default-anim 1s linear infinite;animation: uil-default-anim 1s linear infinite;-webkit-animation-delay: 0.125s;animation-delay: 0.125s;}.uil-default-css { position: relative;background:none;width:200px;height:200px;}.uil-default-css > div:nth-of-type(7){-webkit-animation: uil-default-anim 1s linear infinite;animation: uil-default-anim 1s linear infinite;-webkit-animation-delay: 0.25s;animation-delay: 0.25s;}.uil-default-css { position: relative;background:none;width:200px;height:200px;}.uil-default-css > div:nth-of-type(8){-webkit-animation: uil-default-anim 1s linear infinite;animation: uil-default-anim 1s linear infinite;-webkit-animation-delay: 0.375s;animation-delay: 0.375s;}.uil-default-css { position: relative;background:none;width:200px;height:200px;}</style><div class='uil-default-css' style='transform:scale(0.6);'><div style='top:80px;left:92px;width:16px;height:40px;background:#00b2ff;-webkit-transform:rotate(0deg) translate(0,-60px);transform:rotate(0deg) translate(0,-60px);border-radius:8px;position:absolute;'></div><div style='top:80px;left:92px;width:16px;height:40px;background:#00b2ff;-webkit-transform:rotate(45deg) translate(0,-60px);transform:rotate(45deg) translate(0,-60px);border-radius:8px;position:absolute;'></div><div style='top:80px;left:92px;width:16px;height:40px;background:#00b2ff;-webkit-transform:rotate(90deg) translate(0,-60px);transform:rotate(90deg) translate(0,-60px);border-radius:8px;position:absolute;'></div><div style='top:80px;left:92px;width:16px;height:40px;background:#00b2ff;-webkit-transform:rotate(135deg) translate(0,-60px);transform:rotate(135deg) translate(0,-60px);border-radius:8px;position:absolute;'></div><div style='top:80px;left:92px;width:16px;height:40px;background:#00b2ff;-webkit-transform:rotate(180deg) translate(0,-60px);transform:rotate(180deg) translate(0,-60px);border-radius:8px;position:absolute;'></div><div style='top:80px;left:92px;width:16px;height:40px;background:#00b2ff;-webkit-transform:rotate(225deg) translate(0,-60px);transform:rotate(225deg) translate(0,-60px);border-radius:8px;position:absolute;'></div><div style='top:80px;left:92px;width:16px;height:40px;background:#00b2ff;-webkit-transform:rotate(270deg) translate(0,-60px);transform:rotate(270deg) translate(0,-60px);border-radius:8px;position:absolute;'></div><div style='top:80px;left:92px;width:16px;height:40px;background:#00b2ff;-webkit-transform:rotate(315deg) translate(0,-60px);transform:rotate(315deg) translate(0,-60px);border-radius:8px;position:absolute;'></div></div>");
             $.get("?route="+path+"&type="+type, function(result){
                 genHtml(result, function (html) {
