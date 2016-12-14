@@ -31,6 +31,8 @@ Default config file locate in `framework/config.default.json` , if you want to c
 
 * ***password*** --- Define the book password, can be empty
 
+* ***duoshuo*** --- Define the duoshuo comment shortname, [duoshuo](http://duoshuo.com/) is a social comment plugin, just leave it empty if you donnot want to enable this plugin
+
 * ***menu*** --- Define the book menu struct
 
 ### 404.md
