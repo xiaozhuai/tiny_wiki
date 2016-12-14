@@ -31,6 +31,8 @@ Under the [MIT License](LICENSE.md)
 
 * ***password*** --- 设置密码, 可以不设或为空, 即不需要密码
 
+* ***duoshuo*** --- 设置多说标识, [duoshuo](http://duoshuo.com/) 是一个社会化评论插件， 如果你想关闭此功能，将此项设为空或不设即可
+
 * ***menu*** --- 设置目录结构
 
 ### 404.md
