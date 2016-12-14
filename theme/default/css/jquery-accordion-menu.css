@@ -65,7 +65,6 @@
 	white-space: nowrap;
 	position: relative;
 	overflow: hidden;
-	border-left: solid 6px transparent;
 	-o-transition: color .2s linear,background .2s linear;
 	-moz-transition: color .2s linear,background .2s linear;
 	-webkit-transition: color .2s linear,background .2s linear;
@@ -120,7 +119,6 @@
 	font-size: 11px;
 	border-top: none;
 	position: relative;
-	border-left: solid 6px transparent;
 	-o-transition: border .2s linear;
 	-moz-transition: border .2s linear;
 	-webkit-transition: border .2s linear;
@@ -147,21 +145,27 @@
 	/*padding-left: 120px*/
 /*}*/
 
-.jquery-accordion-menu li>a:hover{
-	background: #121212 !important;
-    border-left-color: #235885 !important;
+.jquery-accordion-menu li>a{
+	background: transparent;
+	border-left: solid 6px transparent;
 }
 
 .jquery-accordion-menu li.active>a{
-    border-left-color: #235885 !important;
+	background: transparent;
+	border-left: solid 6px #235885;
+}
+
+.jquery-accordion-menu li>a:hover{
+	background: #121212;
+	border-left: solid 6px #235885;
 }
 
 .jquery-accordion-menu>ul>li:first-child>a {
-    border-top: solid 1px #363636 !important;
+    border-top: solid 1px #363636;
 }
 
 .jquery-accordion-menu li>a {
-    border-bottom: solid 1px #363636 !important;
+    border-bottom: solid 1px #363636;
 }
 
 
