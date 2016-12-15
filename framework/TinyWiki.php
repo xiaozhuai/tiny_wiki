@@ -5,6 +5,47 @@
  * Date: 16/12/13
  * Time: 上午11:06
  */
+class TinyWikiView
+{
+    private $vars;
+
+    private static $instance;
+    public static function getInstance(){
+        if(self::$instance==null){
+            self::$instance = new TinyWikiView();
+        }
+        return self::$instance;
+    }
+
+    function __construct()
+    {
+        $this->vars = [];
+    }
+
+    function __set($name, $value)
+    {
+        $this->vars[$name] = $value;
+    }
+
+    function __get($name)
+    {
+        if($this->vars[$name])
+            return $this->vars[$name];
+        else
+            return null;
+    }
+
+    function __isset($name)
+    {
+        return isset($this->vars[$name]);
+    }
+
+    public function getAllProperty(){
+        return $this->vars;
+    }
+};
+
+
 
 class TinyWiki
 {
@@ -48,18 +89,18 @@ class TinyWiki
     }
 
     private function login(){
-        $CONFIG = $this->configs;
-        $ERR_MSG = "";
+        $this->getView()->CONFIG  = $this->configs;
+        $this->getView()->ERR_MSG = "";
         if(isset($_POST["password"])){
             if(!isset($this->book["password"]) || $this->book["password"]=="" || $this->book["password"]==$_POST["password"]){
                 $_SESSION["password"] = @$this->book["password"];
                 header("location: .");
                 exit;
             }else{
-                $ERR_MSG = "Password Incorrect";
+                $this->getView()->ERR_MSG = "Password Incorrect";
             }
         }
-        require_once $this->view_root . "/login.php";
+        $this->render("/login.php");
     }
 
     private function replyContent(){
@@ -83,10 +124,22 @@ class TinyWiki
     }
 
     private function layout(){
-        $CONFIG = $this->configs;
-        $BOOK   = $this->book;
-        $MENU   = $this->book["menu"];
-        require_once $this->view_root . "/layout.php";
+        $this->getView()->CONFIG = $this->configs;
+        $this->getView()->BOOK   = $this->book;
+        $this->getView()->MENU   = $this->book["menu"];
+        $this->render("/layout.php");
+    }
+
+    private function getView(){
+        return TinyWikiView::getInstance();
+    }
+
+    private function render($tpl){
+        $vars = $this->getView()->getAllProperty();
+        foreach ($vars as $key => $value){
+            ${$key} = $value;
+        }
+        require_once $this->view_root . $tpl;
     }
 
     private function switchMode(){                          //login mode, content reply mode, layout mode
