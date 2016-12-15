@@ -207,9 +207,10 @@ class TinyWiki
                         break;
                     }
                 }
-                if($this->book_root==null)
+                if($this->book_root==null) {
                     header('HTTP/1.1 404 Not Found');
                     exit("book not exist!");
+                }
                 break;
         }
 
