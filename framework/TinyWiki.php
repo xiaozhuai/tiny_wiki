@@ -73,7 +73,7 @@ class TinyWiki
     }
 
     private function normalizeConfig(){
-        $this->addonLastSlash($this->configs["site_root"]);
+        $this->removeLastSlash($this->configs["site_root"]);
 
         switch(gettype($this->configs["books"])){
             case "string":
@@ -200,13 +200,16 @@ class TinyWiki
                 break;
             case "array":
                 for($i=0; $i<count($this->configs["books"]); $i++){
-                    if($this->configs["books"][$i]["uri"]==$this->uri){
+                    $tmp = $this->configs["site_root"] . $this->configs["books"][$i]["uri"];
+                    $this->removeLastSlash($tmp);
+                    if($tmp==$this->uri){
                         $this->book_root = __DIR__ . "/../".$this->configs["books"][$i]["path"];
                         break;
                     }
                 }
                 if($this->book_root==null)
-                    exit("book \"" . $this->uri . "\" not exist!");
+                    header('HTTP/1.1 404 Not Found');
+                    exit("book not exist!");
                 break;
         }
 

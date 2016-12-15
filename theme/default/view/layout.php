@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title><?php echo $BOOK["title"]; ?></title>
-    <link  href="<?php echo $CONFIG["site_root"]; ?>theme/default/css/github-highlight.css" rel="stylesheet" type="text/css" />
-    <link  href="<?php echo $CONFIG["site_root"]; ?>theme/default/css/github-markdown.css" rel="stylesheet" type="text/css" />
-    <link  href="<?php echo $CONFIG["site_root"]; ?>theme/default/css/jquery-accordion-menu.css" rel="stylesheet" type="text/css" />
-    <link  href="<?php echo $CONFIG["site_root"]; ?>theme/default/css/style.css" rel="stylesheet" type="text/css" />
-    <script src="<?php echo $CONFIG["site_root"]; ?>theme/default/js/highlight.pack.js" type="text/javascript"></script>
-    <script src="<?php echo $CONFIG["site_root"]; ?>public/js/jquery-1.11.2.min.js" type="text/javascript"></script>
-    <script src="<?php echo $CONFIG["site_root"]; ?>public/js/route.all.min.js" type="text/javascript"></script>
+    <link  href="<?php echo $CONFIG["site_root"]; ?>/theme/default/css/github-highlight.css" rel="stylesheet" type="text/css" />
+    <link  href="<?php echo $CONFIG["site_root"]; ?>/theme/default/css/github-markdown.css" rel="stylesheet" type="text/css" />
+    <link  href="<?php echo $CONFIG["site_root"]; ?>/theme/default/css/jquery-accordion-menu.css" rel="stylesheet" type="text/css" />
+    <link  href="<?php echo $CONFIG["site_root"]; ?>/theme/default/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="<?php echo $CONFIG["site_root"]; ?>/theme/default/js/highlight.pack.js" type="text/javascript"></script>
+    <script src="<?php echo $CONFIG["site_root"]; ?>/public/js/jquery-1.11.2.min.js" type="text/javascript"></script>
+    <script src="<?php echo $CONFIG["site_root"]; ?>/public/js/route.all.min.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -27,7 +27,7 @@
 </article>
 
 
-<script src="<?php echo $CONFIG["site_root"]; ?>public/js/markdown-to-html.min.js" type="text/javascript"></script>
+<script src="<?php echo $CONFIG["site_root"]; ?>/public/js/markdown-to-html.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     var menu = <?php echo json_encode($MENU); ?>;
     function renderSubMenu(submenu, deep) {

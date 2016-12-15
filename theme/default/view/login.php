@@ -2,8 +2,8 @@
 <head>
     <meta charset="utf-8">
     <title>Enter the password</title>
-    <link  href="<?php echo $CONFIG["site_root"]; ?>theme/default/css/style-login.css" rel="stylesheet" type="text/css" />
-    <script src="<?php echo $CONFIG["site_root"]; ?>theme/default/js/jquery-1.11.2.min.js" type="text/javascript"></script>
+    <link  href="<?php echo $CONFIG["site_root"]; ?>/theme/default/css/style-login.css" rel="stylesheet" type="text/css" />
+    <script src="<?php echo $CONFIG["site_root"]; ?>/theme/default/js/jquery-1.11.2.min.js" type="text/javascript"></script>
 </head>
 <body>
 <form id="book-login" method="post">
