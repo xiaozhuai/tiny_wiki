@@ -160,9 +160,7 @@ if(getTypeByRenderSize($CONFIG["render_side"])=="markdown"){
                 break;
             case "markdown":
             default:
-                markdownToHtml(text, function(html) {
-                    callback(html);
-                });
+                markdownToHtml(text, callback);
                 break;
         }
     }
