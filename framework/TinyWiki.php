@@ -73,7 +73,7 @@ class TinyWiki
     }
 
     private function normalizeConfig(){
-        $this->removeLastSlash($this->configs["site_root"]);
+        $this->addonLastSlash($this->configs["site_root"]);
 
         switch(gettype($this->configs["books"])){
             case "string":
@@ -109,6 +109,14 @@ class TinyWiki
         if(substr($var, -1) != "/"){
             $var = $var . "/";
         }
+    }
+
+    /**
+     * remove duplicate '/'
+     * @param $var
+     */
+    private function removeDuplicateSlash(&$var){
+        $var = preg_replace('/\/+/', '/', $var);
     }
 
     private function noPermission(){
@@ -201,6 +209,7 @@ class TinyWiki
             case "array":
                 for($i=0; $i<count($this->configs["books"]); $i++){
                     $tmp = $this->configs["site_root"] . $this->configs["books"][$i]["uri"];
+                    $this->removeDuplicateSlash($tmp);
                     $this->removeLastSlash($tmp);
                     if($tmp==$this->uri){
                         $this->book_root = __DIR__ . "/../".$this->configs["books"][$i]["path"];
