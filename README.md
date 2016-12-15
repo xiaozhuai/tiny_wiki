@@ -97,3 +97,17 @@ The sample book is from [leetcode-solution](https://github.com/siddontang/leetco
 + SiddonTang [siddontang@gmail.com](siddontang@gmail.com)
 
 Thanks！
+
+# By The Way
+
+Redirect rules is necessary. An Apache .htaccess file like:
+```
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    #ignore if it's a file
+    RewriteCond %{REQUEST_FILENAME} !-f
+    #redirect all request to index.php
+    RewriteRule .* index.php
+</IfModule>
+```
+You will simply find the rules on nginx, lighthttpd or others by just google :)

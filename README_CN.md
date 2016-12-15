@@ -98,6 +98,20 @@ Under the [MIT License](LICENSE.md)
 
 感谢！
 
+# By The Way
+
+重定向规则是必须的，所有请求(除静态文件)以外，都应该被重定向到index.php，apache下的.htaccess配置如下：
+```
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    #ignore if it's a file
+    RewriteCond %{REQUEST_FILENAME} !-f
+    #redirect all request to index.php
+    RewriteRule .* index.php
+</IfModule>
+```
+你也可以很轻松的在google上找到在 nginx, lighthttpd 或其他服务器前端的等价配置 :)
+
 # 最后
 找一个前端小伙伴，由于本人前端能力有限，求小伙伴加入。
 
