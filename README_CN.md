@@ -19,9 +19,6 @@ Under the [MIT License](LICENSE.md)
 
 * ***theme*** --- 主题目录, 你可以自己开发主题, 但需要注意的是, 主题至少包含 `view/layout.php` 和 `view/login.php` 模板文件，当然, 你可以自己写模板文件
 
-* ***render_side*** --- 选择渲染端, 默认值 `client`
-    1. server --- 在服务端渲染
-    2. client --- 在浏览器(客户端)渲染
 
 ## 书籍设定
 

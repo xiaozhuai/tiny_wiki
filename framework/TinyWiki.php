@@ -40,16 +40,6 @@ class TinyWiki
         //var_dump($this->configs);
     }
 
-    private function parseMarkdownFile($file){
-        return $this->parseMarkdownText(file_get_contents($file));
-    }
-
-    private function parseMarkdownText($text){
-        require_once __DIR__ . '/vendor/Parsedown.php';     //for parse markdown
-        $Parsedown = new Parsedown();
-        return $Parsedown->text($text);
-    }
-
     private function noPermission(){
         return
                 isset($this->book["password"])
@@ -89,20 +79,7 @@ class TinyWiki
         } else {
             $mdContent = file_get_contents($mdFile);
         }
-        $type = "html";
-        if(isset($_GET["type"])){
-            $type = $_GET["type"];
-        }
-        switch ($type){
-            case "markdown":
-            default:
-                echo $mdContent;
-                break;
-            case "html":
-                $mdHtml = $this->parseMarkdownText($mdContent);
-                echo $mdHtml;
-                break;
-        }
+        echo $mdContent;
     }
 
     private function layout(){

@@ -1,6 +1,5 @@
 {
     "book_root": "/sample_book",
     "site_root": "/",
-    "theme": "default",
-    "render_side": "client"
+    "theme": "default"
 }

@@ -19,9 +19,6 @@ Default config file locate in `framework/config.default.json` , if you want to c
 
 * ***theme*** --- Theme dir, you can develop your themes, at least, it should contains `view/layout.php` and `view/login.php` model file
 
-* ***render_side*** --- Choose a side to render menu and content, the default value is `client`
-    1. server --- Render with server
-    2. client --- Render with broswer
 
 ## Book Config
 
