@@ -102,7 +102,7 @@ Thanks！
 >
 > for sample1, go [http://115.159.31.66/tiny_wiki/](http://115.159.31.66/tiny_wiki/)
 >
-> for sample2, go [http://115.159.31.66/tiny_wiki/sample2](http://115.159.31.66/tiny_wiki/sample2/)
+> for sample2, go [http://115.159.31.66/tiny_wiki/sample2/](http://115.159.31.66/tiny_wiki/sample2/)
 
 # By The Way
 

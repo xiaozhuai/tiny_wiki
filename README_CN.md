@@ -102,7 +102,7 @@ Under the [MIT License](LICENSE.md)
 >
 > 示例1： [http://115.159.31.66/tiny_wiki/](http://115.159.31.66/tiny_wiki/)
 >
-> 示例2： [http://115.159.31.66/tiny_wiki/sample2](http://115.159.31.66/tiny_wiki/sample2/)
+> 示例2： [http://115.159.31.66/tiny_wiki/sample2/](http://115.159.31.66/tiny_wiki/sample2/)
 
 # By The Way
 
