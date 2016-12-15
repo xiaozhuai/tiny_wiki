@@ -13,24 +13,63 @@ Under the [MIT License](LICENSE.md)
 ## 配置
 默认的配置文件在 `framework/config.default.json` , 如果需要修改配置, 只需要在项目目录下建立 `config.custom.json` 文件, 所有的配置项都可以被覆盖
 
-* ***book_root*** --- 书记目录, 包含markdown文件, book.json, 甚至一个自定义的 404.md 文件
+#### ***books***
 
-* ***site_root*** --- 站点目录, 例如，如果你将项目至于 `/var/www/wiki` 目录下, 你需要将其设置为 `/wiki`. 如果在 `/var/www`, 使用默认值 `/` 即可
+如果是一个字符串, 则是书籍的目录(相对于项目目录), 例如 `/sample_book`。 也可以提供一个数组, 来配置多本书籍, 例如:
+```
+[
+    {
+        "path": "/sample_book",
+        "uri": "/"
+    },
+    {
+        "path": "/sample_book2",
+        "uri": "/sample2"
+    }
+]
+```
+如果提供的是一个字符串 `/sample_book`, 那么它的等价配置是:
+```
+[
+    {
+        "path": "/sample_book",
+        "uri": "/"
+    }
+]
+```
 
-* ***theme*** --- 主题目录, 你可以自己开发主题, 但需要注意的是, 主题至少包含 `view/layout.php` 和 `view/login.php` 模板文件，当然, 你可以自己写模板文件
+#### ***site_root***
+
+站点目录, 例如，如果你将项目至于 `/var/www/wiki` 目录下, 你需要将其设置为 `/wiki`. 如果在 `/var/www`, 使用默认值 `/` 即可
+
+#### ***theme***
+
+主题目录, 你可以自己开发主题, 但需要注意的是, 主题至少包含 `view/layout.php` 和 `view/login.php` 模板文件，当然, 你可以自己写模板文件
 
 
 ## 书籍设定
 
 ### book.json
 
-* ***title*** --- 设置书名
+#### ***theme***
 
-* ***password*** --- 设置密码, 可以不设或为空, 即不需要密码
+覆盖全局设定中设置的主题，意味着你可以为不同的书使用不同的主题
 
-* ***duoshuo*** --- 设置多说标识, [duoshuo](http://duoshuo.com/) 是一个社会化评论插件， 如果你想关闭此功能，将此项设为空或不设即可
+#### ***title***
 
-* ***menu*** --- 设置目录结构
+设置书名
+
+#### ***password***
+
+设置密码, 可以不设或为空, 即不需要密码
+
+#### ***duoshuo***
+
+设置多说标识, [duoshuo](http://duoshuo.com/) 是一个社会化评论插件， 如果你想关闭此功能，将此项设为空或不设即可
+
+#### ***menu***
+
+设置目录结构
 
 ### 404.md
 设置自定义404页

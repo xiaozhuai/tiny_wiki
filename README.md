@@ -13,24 +13,63 @@ Under the [MIT License](LICENSE.md)
 ## Config
 Default config file locate in `framework/config.default.json` , if you want to change it, just create a new file named `config.custom.json` in the project root dir, any thing can be override
 
-* ***book_root*** --- The book dir, contains md files, and book.json, even with a custom 404.md file
+#### ***books*** 
 
-* ***site_root*** --- Site root dir, it means if you put the project in  `/var/www/wiki`, you shoud give it `/wiki`. If in `/var/www`, it's `/` by default
+If it's a string, it's the path of book, for example `/sample_book`. Also you can provide an array, like:
+```
+[
+    {
+        "path": "/sample_book",
+        "uri": "/"
+    },
+    {
+        "path": "/sample_book2",
+        "uri": "/sample2"
+    }
+]
+```
+If you provide a string `/sample_book`, it's the same with:
+```
+[
+    {
+        "path": "/sample_book",
+        "uri": "/"
+    }
+]
+```
 
-* ***theme*** --- Theme dir, you can develop your themes, at least, it should contains `view/layout.php` and `view/login.php` model file
+#### ***site_root***
+
+Site root dir, it means if you put the project in  `/var/www/wiki`, you shoud give it `/wiki`. If in `/var/www`, it's `/` by default
+
+#### ***theme*** 
+
+Theme dir, you can develop your themes, at least, it should contains `view/layout.php` and `view/login.php` model file
 
 
 ## Book Config
 
 ### book.json
 
-* ***title*** --- Define the book title
+#### ***theme*** 
 
-* ***password*** --- Define the book password, can be empty
+To override theme config in global config in default or custom config, you can set defferent themes for defferent books
 
-* ***duoshuo*** --- Define the duoshuo comment shortname, [duoshuo](http://duoshuo.com/) is a social comment plugin, just leave it empty if you donnot want to enable this plugin
+#### ***title*** 
 
-* ***menu*** --- Define the book menu struct
+Define the book title
+
+#### ***password*** 
+
+Define the book password, can be empty
+
+#### ***duoshuo*** 
+
+Define the duoshuo comment shortname, [duoshuo](http://duoshuo.com/) is a social comment plugin, just leave it empty if you donnot want to enable this plugin
+
+#### ***menu*** 
+
+Define the book menu struct
 
 ### 404.md
 Set a custom 404 page

@@ -54,6 +54,7 @@ class TinyWiki
     private $book;
     private $book_root;
     private $view_root;
+    private $uri;
 
     function __construct($customConfigFile)
     {
@@ -67,25 +68,54 @@ class TinyWiki
             }
         }
         $this->normalizeConfig();
-        $this->book_root = __DIR__ . "/../".$this->configs["book_root"];
-        $this->view_root = __DIR__ . "/../theme/".$this->configs["theme"] . "/view";
+        $this->uri = explode("?", $_SERVER["REQUEST_URI"])[0];
+        $this->removeLastSlash($this->uri);
     }
 
     private function normalizeConfig(){
-        if(substr($this->configs["book_root"], -1)=="/"){
-            $this->configs["book_root"] = substr($this->configs["book_root"], 0, -1);               //remove / if end with /
+        $this->addonLastSlash($this->configs["site_root"]);
+
+        switch(gettype($this->configs["books"])){
+            case "string":
+            default:
+                $this->removeLastSlash($this->configs["books"]);
+                break;
+            case "array":
+                for($i=0; $i<count($this->configs["books"]); $i++){
+                    $this->removeLastSlash($this->configs["books"][$i]["path"]);
+                    $this->removeLastSlash($this->configs["books"][$i]["uri"]);
+                }
+                break;
         }
-        if(substr($this->configs["site_root"], -1)!="/"){
-            $this->configs["site_root"] = $this->configs["site_root"]."/";                          //add / if not end with /
+//        var_dump($this->configs);
+//        exit;
+    }
+
+    /**
+     * remove last '/' if end with '/'
+     * @param $var
+     */
+    private function removeLastSlash(&$var){
+        if($var!= "/" && substr($var, -1) == "/"){
+            $var = substr($var, 0, -1);
         }
-        //var_dump($this->configs);
+    }
+
+    /**
+     * add a '/' if not end with '/'
+     * @param $var
+     */
+    private function addonLastSlash(&$var){
+        if(substr($var, -1) != "/"){
+            $var = $var . "/";
+        }
     }
 
     private function noPermission(){
         return
                 isset($this->book["password"])
                 && $this->book["password"] != ""
-                && @$_SESSION["password"] != $this->book["password"];
+                && @$_SESSION[md5($this->uri)]["password"] != $this->book["password"];
     }
 
     private function login(){
@@ -93,8 +123,8 @@ class TinyWiki
         $this->getView()->ERR_MSG = "";
         if(isset($_POST["password"])){
             if(!isset($this->book["password"]) || $this->book["password"]=="" || $this->book["password"]==$_POST["password"]){
-                $_SESSION["password"] = @$this->book["password"];
-                header("location: .");
+                $_SESSION[md5($this->uri)]["password"] = @$this->book["password"];
+                header("location: ".$this->uri);
                 exit;
             }else{
                 $this->getView()->ERR_MSG = "Password Incorrect";
@@ -157,8 +187,35 @@ class TinyWiki
     public function go()
     {
         session_start();
-        $this->book = json_decode(file_get_contents($this->book_root . "/book.json"), true);     //load book defined in config
+        $this->loadBooks();
         $this->switchMode();
+    }
+
+    private function loadBooks(){
+
+        switch(gettype($this->configs["books"])){
+            case "string":
+            default:
+                $this->book_root = __DIR__ . "/../".$this->configs["books"];
+                break;
+            case "array":
+                for($i=0; $i<count($this->configs["books"]); $i++){
+                    if($this->configs["books"][$i]["uri"]==$this->uri){
+                        $this->book_root = __DIR__ . "/../".$this->configs["books"][$i]["path"];
+                        break;
+                    }
+                }
+                if($this->book_root==null)
+                    exit("book \"" . $this->uri . "\" not exist!");
+                break;
+        }
+
+        $this->book = json_decode(file_get_contents($this->book_root . "/book.json"), true);        //load book defined in config
+        if(isset($this->book["theme"]) && $this->book["theme"]!=""){
+            $this->view_root = __DIR__ . "/../theme/".$this->book["theme"] . "/view";               //override theme if it's defined in book.json
+        }else{
+            $this->view_root = __DIR__ . "/../theme/".$this->configs["theme"] . "/view";            //use global theme config in default or custom config
+        }
     }
 
 }

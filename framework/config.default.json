@@ -1,5 +1,14 @@
 {
-    "book_root": "/sample_book",
+    "books": [
+        {
+            "path": "/sample_book",
+            "uri": "/"
+        },
+        {
+            "path": "/sample_book2",
+            "uri": "/sample2"
+        }
+    ],
     "site_root": "/",
     "theme": "default"
 }
