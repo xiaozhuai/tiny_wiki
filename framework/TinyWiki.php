@@ -119,6 +119,11 @@ class TinyWiki
         $var = preg_replace('/\/+/', '/', $var);
     }
 
+    private function normalizePath(&$path){
+        $path = preg_replace('/\\\\/', '/', $path);
+        $this->removeDuplicateSlash($path);
+    }
+
     private function noPermission(){
         return
                 isset($this->book["password"])
@@ -213,6 +218,7 @@ class TinyWiki
                     $this->removeLastSlash($tmp);
                     if($tmp==$this->uri){
                         $this->book_root = __DIR__ . "/../".$this->configs["books"][$i]["path"];
+                        $this->normalizePath($this->book_root);
                         break;
                     }
                 }
