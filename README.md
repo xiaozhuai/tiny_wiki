@@ -98,6 +98,12 @@ The sample book is from [leetcode-solution](https://github.com/siddontang/leetco
 
 Thanks！
 
+> In this project, I put two books as I said
+>
+> for sample1, go [http://115.159.31.66/tiny_wiki/](http://115.159.31.66/tiny_wiki/)
+>
+> for sample2, go [http://115.159.31.66/tiny_wiki/sample2](http://115.159.31.66/tiny_wiki/sample2/)
+
 # By The Way
 
 Redirect rules is necessary. An Apache .htaccess file like:

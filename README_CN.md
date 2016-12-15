@@ -98,6 +98,12 @@ Under the [MIT License](LICENSE.md)
 
 感谢！
 
+> 在这个项目中, 我加入了两个示例书籍, 便于大家配置多书籍时参考, 具体可参考前文
+>
+> 示例1： [http://115.159.31.66/tiny_wiki/](http://115.159.31.66/tiny_wiki/)
+>
+> 示例2： [http://115.159.31.66/tiny_wiki/sample2](http://115.159.31.66/tiny_wiki/sample2/)
+
 # By The Way
 
 重定向规则是必须的，所有请求(除静态文件)以外，都应该被重定向到index.php，apache下的.htaccess配置如下：
