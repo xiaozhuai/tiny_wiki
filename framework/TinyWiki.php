@@ -29,7 +29,7 @@ class TinyWikiView
 
     function __get($name)
     {
-        if($this->vars[$name])
+        if(isset($this->vars[$name]))
             return $this->vars[$name];
         else
             return null;
