@@ -148,26 +148,7 @@ if(getTypeByRenderSize($CONFIG["render_side"])=="markdown"){
 }
 ?>
 
-<?php
-if(isset($BOOK["duoshuo"]) && $BOOK["duoshuo"]!="") {
-?>
-<script>var duoshuoQuery = {short_name: "<?php echo $BOOK["duoshuo"]; ?>"};</script>
-<script src="http://static.duoshuo.com/embed.js"></script>
-<script>
-    function loadDuoshuo(path) {
-        var t = $("#book-menu-list a[href='#"+path+"']").html().replace(/[&nbsp;|└|─|├|\│]*/, "");
-        var el = document.createElement('div');
-        el.setAttribute('class', 'ds-thread');
-        el.setAttribute('data-thread-key', path);
-        el.setAttribute('data-title', t);
-        el.setAttribute('data-url', window.location.href);
-        DUOSHUO.EmbedThread(el);
-        $(".content-side").append(el);
-    }
-</script>
-<?php
-}
-?>
+<?php require_once __DIR__ . "/../../../framework/vendor/ThirdPartyCommentPlugin.php"; ?>
 
 <script type="text/javascript">
     var menuSelected = null;
@@ -195,13 +176,7 @@ if(isset($BOOK["duoshuo"]) && $BOOK["duoshuo"]!="") {
             $.get("?route="+path+"&type="+type, function(result){
                 genHtml(result, function (html) {
                     $(".content-side").html(html);
-                    <?php
-                    if(isset($BOOK["duoshuo"]) && $BOOK["duoshuo"]!="") {
-                    ?>
-                    loadDuoshuo(path);
-                    <?php
-                    }
-                    ?>
+                    loadThirdPartyCommentPlugin(path);
                 });
             });
         })
