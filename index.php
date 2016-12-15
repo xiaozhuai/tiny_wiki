@@ -1,6 +1,3 @@
 <?php
-
 require_once __DIR__ . "/framework/TinyWiki.php";
-
-$tinyWiki = new TinyWiki(__DIR__."/config.custom.json");
-$tinyWiki->go();
+TinyWiki(__DIR__."/config.custom.json");

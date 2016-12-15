@@ -5,6 +5,12 @@
  * Date: 16/12/13
  * Time: 上午11:06
  */
+
+function TinyWiki($customConfigFile){
+    $tinyWiki = new TinyWiki($customConfigFile);
+    $tinyWiki->go();
+}
+
 class TinyWikiView
 {
     private $vars;
