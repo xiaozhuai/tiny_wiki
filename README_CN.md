@@ -38,6 +38,41 @@ Under the [MIT License](LICENSE.md)
 ]
 ```
 
+##### ***小技巧***
+ 
+得益于多书籍的功能，在TinyWiki中很容易实现某本书的多语言，创建一个config.custom.json，配置books项如下：
+```
+[
+    {
+        "path": "/books/xx_sdk_wiki_cn",
+        "uri": "/xx_sdk_wiki"
+    },
+    {
+        "path": "/books/xx_sdk_wiki_cn",
+        "uri": "/xx_sdk_wiki_cn"
+    },
+    {
+        "path": "/books/xx_sdk_wiki_en",
+        "uri": "/xx_sdk_wiki_en"
+    }
+    {
+        "path": "/books/xx_sdk_wiki_jp",
+        "uri": "/xx_sdk_wiki_jp"
+    },
+    {
+        "path": "/books/xx_sdk_wiki_kr",
+        "uri": "/xx_sdk_wiki_kr"
+    }
+]
+```
+然后便可以通过xx_sdk_wiki_${region}来访问对应的语言版本，是的，没错，我们还可以设置默认的语言为cn，即访问xx_sdk_wiki时会访问到中文的版本：
+```
+{
+    "path": "/books/xx_sdk_wiki_cn",
+    "uri": "/xx_sdk_wiki"
+}
+```
+
 #### ***site_root***
 
 站点目录, 例如，如果你将项目至于 `/var/www/wiki` 目录下, 你需要将其设置为 `/wiki`. 如果在 `/var/www`, 使用默认值 `/` 即可

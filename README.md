@@ -38,6 +38,44 @@ If you provide a string `/samples/sample1`, it's the same with:
 ]
 ```
 
+##### ***Tricks***
+ 
+It's easy to add Multi-Language Support on TinyWiki, let's try. Generate a config.custom.json, and give the books an array like :
+```
+[
+    {
+        "path": "/books/xx_sdk_wiki_cn",
+        "uri": "/xx_sdk_wiki"
+    },
+    {
+        "path": "/books/xx_sdk_wiki_cn",
+        "uri": "/xx_sdk_wiki_cn"
+    },
+    {
+        "path": "/books/xx_sdk_wiki_en",
+        "uri": "/xx_sdk_wiki_en"
+    }
+    {
+        "path": "/books/xx_sdk_wiki_jp",
+        "uri": "/xx_sdk_wiki_jp"
+    },
+    {
+        "path": "/books/xx_sdk_wiki_kr",
+        "uri": "/xx_sdk_wiki_kr"
+    }
+]
+```
+Yes, you can guess what I will do next ~~
+I can visit an English version by xx_sdk_wiki_en，a Chinese version by xx_sdk_wiki_cn ...
+Even the default version set to Chinese, so you can visit xx_sdk_wiki for default Chinese version.
+All option is up to you. just config it like this:
+```
+{
+    "path": "/books/xx_sdk_wiki_cn",
+    "uri": "/xx_sdk_wiki"
+}
+```
+
 #### ***site_root***
 
 Site root dir, it means if you put the project in  `/var/www/wiki`, you shoud give it `/wiki`. If in `/var/www`, it's `/` by default
