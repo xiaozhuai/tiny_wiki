@@ -15,24 +15,24 @@ Under the [MIT License](LICENSE.md)
 
 #### ***books***
 
-如果是一个字符串, 则是书籍的目录(相对于项目目录), 例如 `/sample_book`。 也可以提供一个数组, 来配置多本书籍, 例如:
+如果是一个字符串, 则是书籍的目录(相对于项目目录), 例如 `/samples/sample1`。 也可以提供一个数组, 来配置多本书籍, 例如:
 ```
 [
     {
-        "path": "/sample_book",
+        "path": "/samples/sample1",
         "uri": "/"
     },
     {
-        "path": "/sample_book2",
+        "path": "/samples/sample2",
         "uri": "/sample2"
     }
 ]
 ```
-如果提供的是一个字符串 `/sample_book`, 那么它的等价配置是:
+如果提供的是一个字符串 `/samples/sample1`, 那么它的等价配置是:
 ```
 [
     {
-        "path": "/sample_book",
+        "path": "/samples/sample1",
         "uri": "/"
     }
 ]

@@ -15,24 +15,24 @@ Default config file locate in `framework/config.default.json` , if you want to c
 
 #### ***books*** 
 
-If it's a string, it's the path of book, for example `/sample_book`. Also you can provide an array, like:
+If it's a string, it's the path of book, for example `/samples/sample1`. Also you can provide an array, like:
 ```
 [
     {
-        "path": "/sample_book",
+        "path": "/samples/sample1",
         "uri": "/"
     },
     {
-        "path": "/sample_book2",
+        "path": "/samples/sample2",
         "uri": "/sample2"
     }
 ]
 ```
-If you provide a string `/sample_book`, it's the same with:
+If you provide a string `/samples/sample1`, it's the same with:
 ```
 [
     {
-        "path": "/sample_book",
+        "path": "/samples/sample1",
         "uri": "/"
     }
 ]

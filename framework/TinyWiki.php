@@ -134,7 +134,7 @@ class TinyWiki
         return
                 isset($this->book["password"])
                 && $this->book["password"] != ""
-                && @$_SESSION[md5($this->uri)]["password"] != $this->book["password"];
+                && @$_SESSION["tiny_wiki"][md5($this->uri)]["password"] != $this->book["password"];
     }
 
     private function login(){
@@ -142,7 +142,7 @@ class TinyWiki
         $this->getView()->ERR_MSG = "";
         if(isset($_POST["password"])){
             if(!isset($this->book["password"]) || $this->book["password"]=="" || $this->book["password"]==$_POST["password"]){
-                $_SESSION[md5($this->uri)]["password"] = @$this->book["password"];
+                @$_SESSION["tiny_wiki"][md5($this->uri)]["password"] = @$this->book["password"];
                 header("location: ".$this->uri);
                 exit;
             }else{

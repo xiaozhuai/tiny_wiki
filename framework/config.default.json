@@ -1,11 +1,11 @@
 {
     "books": [
         {
-            "path": "/sample_book",
+            "path": "/samples/sample1",
             "uri": "/"
         },
         {
-            "path": "/sample_book2",
+            "path": "/samples/sample2",
             "uri": "/sample2"
         }
     ],
