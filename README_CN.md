@@ -40,7 +40,7 @@ Under the [MIT License](LICENSE.md)
 
 ##### ***小技巧***
  
-得益于多书籍的功能，在TinyWiki中很容易实现某本书的多语言，创建一个config.custom.json，配置books项如下：
+得益于多模块文档的功能，在TinyWiki中很容易实现某本书的多语言，创建一个config.custom.json，配置books项如下：
 ```
 [
     {
@@ -133,7 +133,7 @@ Under the [MIT License](LICENSE.md)
 
 感谢！
 
-> 在这个项目中, 我加入了两个示例书籍, 便于大家配置多书籍时参考, 具体可参考前文
+> 在这个项目中, 我加入了两个示例书籍, 便于大家配置多模块文档时参考, 具体可参考前文
 >
 > 示例1： [http://115.159.31.66/tiny_wiki/](http://115.159.31.66/tiny_wiki/)
 >
