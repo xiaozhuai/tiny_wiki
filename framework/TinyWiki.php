@@ -75,6 +75,9 @@ class TinyWiki
         }
         $this->normalizeConfig();
         $this->uri = explode("?", $_SERVER["REQUEST_URI"])[0];
+        if(substr($this->uri, -1) != "/") {                                                         //add a / if uri not end with /
+            header("location: ".$this->uri."/");
+        }
         $this->removeLastSlash($this->uri);
     }
 
